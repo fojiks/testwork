@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Тестовое задание 1</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+	var coords = [
+		[55.715218, 37.513847],
+		[55.70574, 37.714348],
+		[55.735423, 37.823181],
+	];
+	
+	var marker = [];
+
+	function initialize() {
+	  var mapOptions = {
+		zoom: 10,
+		center: new google.maps.LatLng(coords[1][0],coords[1][1]),
+	  }
+	  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+		
+	  for(var i=0;i<coords.length;i++)
+	  {
+		marker = new google.maps.Marker({
+		  position: new google.maps.LatLng(coords[i][0],coords[i][1]),
+		  map: map,
+		});
+	  }
+	  
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas" style="width:630px; height:432px;"></div>
+  </body>
+</html>
